@@ -22,5 +22,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123'),
             'role' => '1'
         ]);
+
+        DB::table('travel')->insert([
+            'nama' => 'Admin',
+            'tanggal' => '2023-01-17',
+            'jumlah' => '5 Orang',
+            'harga' => '999'
+        ]);
     }
 }

@@ -1,23 +1,99 @@
-@extends('layouts.app')
+@extends('layouts.appadmin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<section class="content-header">
+    <div class="container-fluid">
+        <h2>HWLLW WORLD</h2>
+    </div><!-- /.container-fluid -->
+</section>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+      <h2>Lorem ipsum dolor sit amet.</h2>
     </div>
-</div>
+    <!-- /.container-fluid -->
+</section>
+
+@endsection
+
+@section('script')
+<script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+</script>
+
+<!-- DataTables  & Plugins -->
+<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+
+<script>
+    $('.delete').on('click', function(){
+    var link = $(this).data('link');
+    $('#formDelete').attr('action',link)
+    });
+</script>
+
+<script>
+  @if(Session::has('success'))
+  toastr.options =
+  {
+      "closeButton" : true,
+      "progressBar" : true
+  }
+          toastr.success("{{ session('success') }}");
+  @endif
+
+  @if(Session::has('error'))
+  toastr.options =
+  {
+      "closeButton" : true,
+      "progressBar" : true
+  }
+          toastr.error("{{ session('error') }}");
+  @endif
+
+  @if(Session::has('info'))
+  toastr.options =
+  {
+      "closeButton" : true,
+      "progressBar" : true
+  }
+          toastr.info("{{ session('info') }}");
+  @endif
+
+  @if(Session::has('warning'))
+  toastr.options =
+  {
+      "closeButton" : true,
+      "progressBar" : true
+  }
+          toastr.warning("{{ session('warning') }}");
+  @endif
+</script>
 @endsection
