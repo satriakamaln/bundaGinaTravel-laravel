@@ -24,9 +24,14 @@ class TourWisataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $data = new TourWisata;
+        $data->namaWisata = $request->namaWisata;
+        $data->hargaRegional = $request->hargaRegional;
+        $data->save();
+
+        return back();
     }
 
     /**

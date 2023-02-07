@@ -24,9 +24,15 @@ class RentalMobilController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $data = new RentalMobil;
+        $data->namaMobil = $request->namaMobil;
+        $data->noPolisi = $request->noPolisi;
+        $data->harga = $request->harga;
+        $data->save();
+
+        return back();
     }
 
     /**

@@ -26,8 +26,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/travelindex', [App\Http\Controllers\TravelController::class, 'index'])->name('travelindex');
 
 Route::get('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'index'])->name('tourwisata');
+Route::post('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'create'])->name('tourwisatacreate');
 
 Route::get('/rentalmobil', [App\Http\Controllers\RentalMobilController::class, 'index'])->name('rentalmobil');
+Route::post('/rentalmobil', [App\Http\Controllers\RentalMobilController::class, 'create'])->name('rentalmobilcreate');
 
 Route::get('/pemesanan', [App\Http\Controllers\PemesananController::class, 'index'])->name('pemesanan');
 
