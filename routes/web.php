@@ -23,7 +23,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/travelindex', [App\Http\Controllers\TravelController::class, 'index'])->name('travelindex');
+Route::get('/travelindex', [App\Http\Controllers\TravelController::class, 'index'])->name('travel');
+Route::post('/travelindex', [App\Http\Controllers\TravelController::class, 'create'])->name('travelcreate');
 
 Route::get('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'index'])->name('tourwisata');
 Route::post('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'create'])->name('tourwisatacreate');

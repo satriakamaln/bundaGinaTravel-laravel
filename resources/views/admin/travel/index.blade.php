@@ -34,8 +34,9 @@
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            <a type="button" href="" class="btn  btn-primary ">Tambah
-                                Data Travel</a>
+                            <button class="btn  btn-primary" data-toggle="modal" data-target="#modalTambah">
+                                <span><i class="feather icon-plus"></i> Tambah Data Travel</span>
+                            </button>
                             <a type="button" href="" class="btn  btn-primary float-right" target="_blank">Cetak
                             </a>
                         </td>
@@ -89,7 +90,7 @@
     </div>
     <!-- /.container-fluid -->
 </section>
-
+@include('admin.travel.create')
 @endsection  
 
 @section('script')

@@ -93,7 +93,7 @@
                 </a>         
               </li>
             <li class="nav-item menu-open">
-                <a href="{{ route('travelindex') }}" class="nav-link">
+                <a href="{{ route('travel') }}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Data Travel

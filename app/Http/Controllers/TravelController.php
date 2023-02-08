@@ -13,4 +13,16 @@ class TravelController extends Controller
 
         return view('admin.travel.index', compact('data'));
     }
+
+    public function create(Request $request)
+    {
+        $data = new Travel;
+        $data->tanggal = $request->tanggal;
+        $data->nama = $request->nama;
+        $data->jumlah = $request->jumlah;
+        $data->harga = $request->harga;
+        $data->save();
+
+        return back();
+    }
 }
