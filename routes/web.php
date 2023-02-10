@@ -25,6 +25,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/travelindex', [App\Http\Controllers\TravelController::class, 'index'])->name('travel');
 Route::post('/travelindex', [App\Http\Controllers\TravelController::class, 'create'])->name('travelcreate');
+Route::get('/traveledit', [App\Http\Controllers\TravelController::class, 'create'])->name('traveledit');
+Route::put('/travelupdate', [App\Http\Controllers\TravelController::class, 'create'])->name('travelupdate');
+Route::delete('/traveldelete/{id}', [App\Http\Controllers\TravelController::class, 'destroy'])->name('traveldelete');
 
 Route::get('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'index'])->name('tourwisata');
 Route::post('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'create'])->name('tourwisatacreate');

@@ -25,4 +25,21 @@ class TravelController extends Controller
 
         return back();
     }
+
+    public function edit()
+    {
+        //
+    }
+
+    public function update()
+    {
+        //
+    }
+
+    public function destroy(Travel $id)
+    {
+        $id->delete();
+
+        return back()->withSuccess('Data Berhasil Dihapus');
+    }
 }

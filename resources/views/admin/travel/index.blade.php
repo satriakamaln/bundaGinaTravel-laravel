@@ -68,7 +68,7 @@
                                         </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
-                                            data-link="->id) }}">
+                                            data-link="{{ route('traveldelete',$d->id) }}">
                                             <i class="fas fa-times"></i>
                                         </button>
 
@@ -78,7 +78,7 @@
                             </tbody>
                         </table>
 
-                        
+
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -91,7 +91,8 @@
     <!-- /.container-fluid -->
 </section>
 @include('admin.travel.create')
-@endsection  
+@include('layouts.delete_modal')
+@endsection
 
 @section('script')
 
