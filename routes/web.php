@@ -31,6 +31,7 @@ Route::delete('/traveldelete/{id}', [App\Http\Controllers\TravelController::clas
 
 Route::get('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'index'])->name('tourwisata');
 Route::post('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'create'])->name('tourwisatacreate');
+Route::put('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'edit'])->name('tourwisataedit');
 
 Route::get('/rentalmobil', [App\Http\Controllers\RentalMobilController::class, 'index'])->name('rentalmobil');
 Route::post('/rentalmobil', [App\Http\Controllers\RentalMobilController::class, 'create'])->name('rentalmobilcreate');
