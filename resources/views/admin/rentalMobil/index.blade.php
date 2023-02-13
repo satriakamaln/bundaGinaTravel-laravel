@@ -61,9 +61,10 @@
                                     <td>{{ $d->noPolisi }}</td>
                                     <td>{{ $d->harga }}</td>
                                     <td>
-                                        <a href="->id) }}" class="btn btn-sm bg-primary">
+                                        <a class="btn btn-sm btn-info text-white" data-id="{{$d->id}}" data-namamobil="{{$d->namaMobil}}"  
+                                            data-nopolisi="{{$d->noPolisi}}" data-harga="{{$d->harga}}" data-toggle="modal" data-target="#editModal">
                                             <i class="fas fa-edit"></i>
-                                        </a>
+                                          </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
                                             data-link="->id) }}">
@@ -89,6 +90,7 @@
     <!-- /.container-fluid -->
 </section>
 @include('admin.rentalMobil.create')
+@include('admin.rentalMobil.edit')
 @endsection  
 
 @section('script')
@@ -126,6 +128,24 @@
       });
     });
   </script>
+
+<script>
+    $('#editModal').on('show.bs.modal', function(event) {
+        let button = $(event.relatedTarget)
+        let id = button.data('id')
+        let namaMobil = button.data('namamobil')
+        let noPolisi = button.data('nopolisi')
+        let harga = button.data('harga')
+        let modal = $(this)
+        console.log();
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #namaMobil').val(namaMobil);
+        modal.find('.modal-body #noPolisi').val(noPolisi);
+        modal.find('.modal-body #harga').val(harga);
+
+    })
+</script>
+
 <script>
     $('.delete').on('click', function(){
     var link = $(this).data('link');

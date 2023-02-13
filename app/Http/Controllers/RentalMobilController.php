@@ -63,9 +63,15 @@ class RentalMobilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $data = RentalMobil::find($request->id);
+        $data->namaMobil = $request->namaMobil;
+        $data->noPolisi = $request->noPolisi;
+        $data->harga = $request->harga;
+        $data->update();
+
+        return back();
     }
 
     /**
