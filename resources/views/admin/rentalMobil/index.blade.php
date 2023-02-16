@@ -67,7 +67,7 @@
                                           </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
-                                            data-link="->id) }}">
+                                            data-link="{{ route('rentalmobildelete',$d->id) }}">
                                             <i class="fas fa-times"></i>
                                         </button>
 
@@ -91,6 +91,7 @@
 </section>
 @include('admin.rentalMobil.create')
 @include('admin.rentalMobil.edit')
+@include('layouts.delete_modal')
 @endsection  
 
 @section('script')

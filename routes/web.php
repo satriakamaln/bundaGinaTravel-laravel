@@ -36,6 +36,7 @@ Route::put('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'ed
 Route::get('/rentalmobil', [App\Http\Controllers\RentalMobilController::class, 'index'])->name('rentalmobil');
 Route::post('/rentalmobil', [App\Http\Controllers\RentalMobilController::class, 'create'])->name('rentalmobilcreate');
 Route::put('/rentalmobil', [App\Http\Controllers\RentalMobilController::class, 'edit'])->name('rentalmobiledit');
+Route::delete('/rentalmobildelete/{id}', [App\Http\Controllers\RentalMobilController::class, 'destroy'])->name('rentalmobildelete');
 
 Route::get('/pemesanan', [App\Http\Controllers\PemesananController::class, 'index'])->name('pemesanan');
 
