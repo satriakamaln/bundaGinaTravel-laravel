@@ -26,9 +26,16 @@ class TravelController extends Controller
         return back();
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
-        //
+        $data = Travel::find($request->id);
+        $data->tanggal = $request->tanggal;
+        $data->nama = $request->nama;
+        $data->jumlah = $request->jumlah;
+        $data->harga = $request->harga;
+        $data->save();
+
+        return back();
     }
 
     public function update()

@@ -62,7 +62,7 @@
                                         <a class="btn btn-sm btn-info text-white" data-id="{{$d->id}}" data-namawisata="{{$d->namaWisata}}"  
                                             data-hargaregional="{{$d->hargaRegional}}" data-toggle="modal" data-target="#editModal">
                                             <i class="fas fa-edit"></i>
-                                          </a>
+                                        </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
                                             data-link="->id) }}">

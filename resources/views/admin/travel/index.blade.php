@@ -63,9 +63,10 @@
                                     <td>{{ $d->jumlah }}</td>
                                     <td>{{ $d->harga }}</td>
                                     <td>
-                                        <a href="->id) }}" class="btn btn-sm bg-primary">
+                                        <a class="btn btn-sm btn-info text-white" data-id="{{$d->id}}" data-tanggal="{{$d->tanggal}}"  
+                                            data-nama="{{$d->nama}}" data-jumlah="{{$d->jumlah}}" data-harga="{{$d->harga}}" data-toggle="modal" data-target="#editModal">
                                             <i class="fas fa-edit"></i>
-                                        </a>
+                                          </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
                                             data-link="{{ route('traveldelete',$d->id) }}">
@@ -91,6 +92,7 @@
     <!-- /.container-fluid -->
 </section>
 @include('admin.travel.create')
+@include('admin.travel.edit')
 @include('layouts.delete_modal')
 @endsection
 
@@ -129,6 +131,26 @@
       });
     });
   </script>
+
+<script>
+    $('#editModal').on('show.bs.modal', function(event) {
+        let button = $(event.relatedTarget)
+        let id = button.data('id')
+        let tanggal = button.data('tanggal')
+        let nama = button.data('nama')
+        let jumlah = button.data('jumlah')
+        let harga = button.data('harga')
+        let modal = $(this)
+        console.log();
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #tanggal').val(tanggal);
+        modal.find('.modal-body #nama').val(nama);
+        modal.find('.modal-body #jumlah').val(jumlah);
+        modal.find('.modal-body #harga').val(harga);
+
+    })
+</script>
+
 <script>
     $('.delete').on('click', function(){
     var link = $(this).data('link');
