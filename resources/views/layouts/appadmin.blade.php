@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>@yield('title')</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
@@ -27,6 +27,8 @@
   <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
   @yield('head')
 </head>
 
@@ -68,89 +70,90 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item menu-open">
-              <a href="#" class="nav-link">
+            <li class="nav-item">
+              <a href="{{ route('admin.home') }}" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                  Dashboard
+                  Home
                 </p>
-              </a>         
-            </li>      
-            <li class="nav-item menu-open">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              </a>
+            </li>
+            <li class="{{ Request::is('admin/user/*') ? 'mm-active' : '' }} nav-item" >
+              <a href="{{ route('admin.user.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
                 <p>
                   Data Pengguna
                 </p>
-              </a>         
+              </a>
             </li>
-            <li class="nav-item menu-open">
+            <li class="nav-item">
+              <a href="{{ route('admin.mobil.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-car"></i>
+                <p>
+                  Data Mobil
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('tourwisata') }}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Data Tour Wisata
                   </p>
-                </a>         
+                </a>
               </li>
-            <li class="nav-item menu-open">
+            <li class="nav-item">
                 <a href="{{ route('travel') }}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Data Travel
                   </p>
-                </a>         
+                </a>
               </li>
-              <li class="nav-item menu-open">
+              <li class="nav-item">
                 <a href="{{ route('rentalmobil') }}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Data Rental Mobil
                   </p>
-                </a>         
-              </li>      
-              <li class="nav-item menu-open">
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{ route('pemesanan') }}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Data Pemesanan
                   </p>
-                </a>         
-              </li>      
-              <li class="nav-item menu-open">
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{ route('pembayaran') }}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Data Pembayaran
                   </p>
-                </a>         
-              </li>      
-              <li class="nav-item menu-open">
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Laporan
                   </p>
-                </a>         
-              </li>      
-              <li class="nav-item menu-open">
-                <a href="#" class="nav-link">
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();document.getElementById('logout-form').submit();"  class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
-                    LOG Out
-                  </p>
-                </a>         
-              </li>   
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
+                  </p>
                 </a>
-
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
-            </div>   
+              </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -215,6 +218,47 @@
   <script src="{{ asset('dist/js/demo.js') }}"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+
+  <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+
+  <script>
+    @if(Session::has('success'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.success("{{ session('success') }}");
+    @endif
+
+    @if(Session::has('error'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.error("{{ session('error') }}");
+    @endif
+
+    @if(Session::has('info'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.info("{{ session('info') }}");
+    @endif
+
+    @if(Session::has('warning'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.warning("{{ session('warning') }}");
+    @endif
+  </script>
+
   @yield('script')
 </body>
 
