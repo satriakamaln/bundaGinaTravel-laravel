@@ -23,6 +23,7 @@ class CreateTravelTable extends Migration
             $table->string('jam');
             $table->string('kota_asal');
             $table->string('tujuan');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -78,6 +78,17 @@ Tambah Travel
                                     <input type="text" class="form-control" id="tujuan" name="tujuan"
                                         placeholder="Masukan Tujuan" required>
                                 </div>
+                                <div class="form-group ">
+                                    <label>Status</label>
+                                    <select name="status" class="form-control select2 select2-hidden-accessible"
+                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option selected="selected" data-select2-id="3">--Pilih Status--
+                                        </option>
+                                        <option value="Tersedia" data-select2-id="34">Tersedia</option>
+                                        <option value="Tidak Tersedia" data-select2-id="35">Tidak Tersedia</option>
+                                        <option value="Selesai" data-select2-id="35">Selesai</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <td>
