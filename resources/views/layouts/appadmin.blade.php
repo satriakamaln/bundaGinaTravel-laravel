@@ -95,10 +95,10 @@
               </a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('admin.wisata.index') }}" class="nav-link">
                   <i class="nav-icon fas fa-compass"></i>
                   <p>
-                    Data Tour Wisata
+                    Data Wisata
                   </p>
                 </a>
               </li>
@@ -145,7 +145,7 @@
               <li class="nav-item">
                 <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();document.getElementById('logout-form').submit();"  class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="nav-icon fas fa-sign-out-alt"></i>
                   <p>
                     {{ __('Logout') }}
                   </p>
