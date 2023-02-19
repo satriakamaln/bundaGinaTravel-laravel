@@ -67,9 +67,9 @@ Wisata
                                     <td>{{ $d->deskripsi }}</td>
                                     <td class="text-center"><a class="btn btn-info" href="{{ asset('public/wisata/'.$d->foto) }}" target="_blank">Lihat Foto</a></td>
                                     <td>
-                                        <a class="btn btn-sm btn-info text-white" href="{{ route('admin.wisata.edit', $d->id) }}">
+                                        {{-- <a class="btn btn-sm btn-info text-white" href="{{ route('admin.wisata.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
-                                          </a>
+                                          </a> --}}
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
                                             data-link="{{ route('admin.wisata.destroy', $d->id) }}">
