@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Pelanggan
 {
@@ -16,6 +17,16 @@ class Pelanggan
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+        switch (Auth::user()->role) {
+            case 0:
+                return $next($request);
+                break;
+            case 1:
+                return redirect()->route('admin.home');
+                break;
+        }
     }
 }
