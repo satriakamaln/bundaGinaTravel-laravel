@@ -56,6 +56,7 @@ Travel
                                     <th>Tujuan</th>
                                     <th>Sopir</th>
                                     <th>Mobil</th>
+                                    <th>Harga</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -69,6 +70,7 @@ Travel
                                     <td>{{ $d->tujuan }}</td>
                                     <td>{{ $d->user->name }}</td>
                                     <td>{{ $d->mobil->merk }} {{ $d->mobil->jenis }}</td>
+                                    <td>{{ $d->harga }} </td>
                                     <td>{{ $d->status }}</td>
                                     <td>
                                         <a class="btn btn-sm btn-info text-white" href="{{ route('admin.travel.edit', $d->id) }}">

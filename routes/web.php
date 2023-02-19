@@ -5,6 +5,10 @@ use App\Http\Controllers\TravelController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\MainWisataController;
+use App\Http\Controllers\MainTravelController;
+use App\Http\Controllers\MainRentalController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +24,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/', [MainController::class, 'index'])->name('main');
+Route::get('wisata', [MainWisataController::class, 'index'])->name('wisata');
+Route::get('travel', [MainTravelController::class, 'index'])->name('travel');
+Route::get('rental', [MainRentalController::class, 'index'])->name('rental');
 
 Auth::routes();
 

@@ -24,6 +24,7 @@ class CreateTravelTable extends Migration
             $table->string('kota_asal');
             $table->string('tujuan');
             $table->string('status');
+            $table->integer('harga');
             $table->timestamps();
         });
     }
