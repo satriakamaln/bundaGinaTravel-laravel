@@ -38,7 +38,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+      <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
     </div>
 
     <!-- Main Sidebar Container -->
@@ -48,7 +48,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" class="d-block">Admin</a>
@@ -95,23 +95,23 @@
               </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('tourwisata') }}" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                <a href="" class="nav-link">
+                  <i class="nav-icon fas fa-compass"></i>
                   <p>
                     Data Tour Wisata
                   </p>
                 </a>
               </li>
             <li class="nav-item">
-                <a href="{{ route('travel') }}" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                <a href="{{ route('admin.travel.index') }}" class="nav-link">
+                  <i class="nav-icon fas fa-route"></i>
                   <p>
                     Data Travel
                   </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('rentalmobil') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Data Rental Mobil

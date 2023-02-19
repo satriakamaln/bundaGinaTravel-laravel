@@ -14,11 +14,15 @@ class CreateTravelTable extends Migration
     public function up()
     {
         Schema::create('travel', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->date('tanggal');
-            $table->string('nama');
-            $table->string('jumlah');
-            $table->integer('harga');
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->unsignedBigInteger('mobil_id');
+            $table->foreign('mobil_id')->references('id')->on('mobils')->onDelete('restrict');
+            $table->date('tanggal_berangkat');
+            $table->string('jam');
+            $table->string('kota_asal');
+            $table->string('tujuan');
             $table->timestamps();
         });
     }

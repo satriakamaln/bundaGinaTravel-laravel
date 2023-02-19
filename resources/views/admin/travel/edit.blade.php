@@ -1,61 +1,103 @@
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="edit-modal-label"
-    aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="edit-modal-label" style="padding-left: 10px;">Edit Data Travel</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
+@extends('home')
+
+@section('title')
+Ubah Travel
+@endsection
+
+@section('content')
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Travel</h1>
             </div>
-            <div class="modal-body">
-                <form method="post" enctype="multipart/form-data">
-                    {{ method_field('put') }}
-                    @csrf
-                    <div class=" modal-body">
-                        <input type="hidden" name="id" id="id">
-                        <div class="form-group">
-                            <label class="col-form-label" for="tanggal">Tanggal</label>
-                            <input type="date" class="form-control @error ('tanggal') is-invalid @enderror"
-                                name="tanggal" value="{{old('tanggal')}}"
-                                id="tanggal" autofocus>
-                            @error('tanggal')<div class="invalid-feedback"> {{$message}} </div>@enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-form-label" for="nama">Nama</label>
-                            <input type="text" class="form-control @error ('nama') is-invalid @enderror"
-                                name="nama" value="{{old('nama')}}"
-                                id="nama" autofocus>
-                            @error('nama')<div class="invalid-feedback"> {{$message}} </div>@enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-form-label" for="jumlah">Jumlah</label>
-                            <input type="text" class="form-control @error ('jumlah') is-invalid @enderror"
-                                name="jumlah" value="{{old('jumlah')}}"
-                                id="jumlah" autofocus>
-                            @error('jumlah')<div class="invalid-feedback"> {{$message}} </div>@enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-form-label" for="harga">Harga</label>
-                            <input type="text" class="form-control @error ('harga') is-invalid @enderror"
-                                name="harga" value="{{old('harga')}}"
-                                id="harga" autofocus>
-                            @error('harga')<div class="invalid-feedback"> {{$message}} </div>@enderror
-                        </div>
-
-                        
-                        <br>
-
-                    </div>
-                    <div class="edit modal-footer">
-                        <button type="button" class="btn btn-secondary text-white" data-dismiss="modal">Close</button>
-                        <button type="submit" class="edit btn btn-primary">Ubah</button>
-                    </div>
-                </form>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="breadcrumb-item active">Ubah Travel</li>
+                </ol>
             </div>
         </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Ubah</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form method="post" action="{{ route('admin.travel.update', $travel->id) }}">
+                            <div class="modal-body">
+                                @csrf
+                                @method('put')
+                                <div class="form-group ">
+                                    <label>Pilih Mobil</label>
+                                    <select name="mobil_id" class="form-control select2 select2-hidden-accessible"
+                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option selected="selected" data-select2-id="3">--Pilih Mobil--
+                                        </option>
+                                        @foreach ($mobil as $m)
+                                       <option value="{{ $m->id }}" {{  $travel->mobil_id ? 'selected' : '' }} data-select2-id="34">{{ $m->merk }},  {{ $m->jenis }} {{ $m->tipe }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group ">
+                                    <label>Pilih Sopir</label>
+                                    <select name="user_id" class="form-control select2 select2-hidden-accessible"
+                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option selected="selected" data-select2-id="3">--Pilih Sopir--
+                                        </option>
+                                            @foreach ($driver as $s)
+                                            <option value="{{ $s->id }}" {{  $travel->user_id ? 'selected' : '' }} data-select2-id="34">{{ $s->name }}</option>
+                                            @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tanggal_berangkat">Tanggal</label>
+                                    <input type="date" class="form-control" id="tanggal_berangkat" name="tanggal_berangkat" value="{{ $travel->tanggal_berangkat }}"
+                                        placeholder="Masukan Tanggal" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jam">Jam Berangkat</label>
+                                    <input type="text" class="form-control" id="jam" name="jam" value="{{ $travel->jam }}"
+                                        placeholder="Masukan Jam Berangkat" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="kota_asal">Kota Asal</label>
+                                    <input type="text" class="form-control" id="kota_asal" name="kota_asal" value="{{ $travel->kota_asal }}"
+                                        placeholder="Masukan Kota Asal" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tujuan">Tujuan</label>
+                                    <input type="text" class="form-control" id="tujuan" name="tujuan" value="{{ $travel->tujuan }}"
+                                        placeholder="Masukan Tujuan" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <td>
+                                    <a type="button" href="{{ route('admin.travel.index') }}"
+                                        class="btn btn btn-danger">Kembali</a>
+                                </td>
+                                <button type="submit" class="btn btn-primary">Ubah Data</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
     </div>
-</div>
+    <!-- /.container-fluid -->
+</section>
+
+@endsection

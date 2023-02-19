@@ -1,5 +1,9 @@
 @extends('home')
 
+@section('title')
+Travel
+@endsection
+
 @section('head')
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -18,8 +22,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="">Home</a></li>
-                    <li class="breadcrumb-item active">Buku</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+                    <li class="breadcrumb-item active">Travel</li>
                 </ol>
             </div>
         </div>
@@ -34,9 +38,9 @@
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            <button class="btn  btn-primary" data-toggle="modal" data-target="#modalTambah">
+                            <a class="btn  btn-primary" href="{{ route('admin.travel.create') }}">
                                 <span><i class="feather icon-plus"></i> Tambah Data Travel</span>
-                            </button>
+                            </a>
                             <a type="button" href="" class="btn  btn-primary float-right" target="_blank">Cetak
                             </a>
                         </td>
@@ -48,9 +52,10 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal</th>
-                                    <th>Nama</th>
-                                    <th>Jumlah Penumpang</th>
-                                    <th>Harga</th>
+                                    <th>Kota Asal</th>
+                                    <th>Tujuan</th>
+                                    <th>Sopir</th>
+                                    <th>Mobil</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -58,18 +63,18 @@
                                 @foreach ($data as $d )
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $d->tanggal }}</td>
-                                    <td>{{ $d->nama }}</td>
-                                    <td>{{ $d->jumlah }}</td>
-                                    <td>{{ $d->harga }}</td>
+                                    <td>{{carbon\carbon::parse($d->tanggal_berangkat)->translatedFormat('d F Y')}}, {{ $d->jam }}</td>
+                                    <td>{{ $d->kota_asal }}</td>
+                                    <td>{{ $d->tujuan }}</td>
+                                    <td>{{ $d->user->name }}</td>
+                                    <td>{{ $d->mobil->merk }} {{ $d->mobil->jenis }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-info text-white" data-id="{{$d->id}}" data-tanggal="{{$d->tanggal}}"  
-                                            data-nama="{{$d->nama}}" data-jumlah="{{$d->jumlah}}" data-harga="{{$d->harga}}" data-toggle="modal" data-target="#editModal">
+                                        <a class="btn btn-sm btn-info text-white" href="{{ route('admin.travel.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
                                           </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
-                                            data-link="{{ route('traveldelete',$d->id) }}">
+                                            data-link="{{ route('admin.travel.destroy',$d->id) }}">
                                             <i class="fas fa-times"></i>
                                         </button>
 
@@ -91,8 +96,6 @@
     </div>
     <!-- /.container-fluid -->
 </section>
-@include('admin.travel.create')
-@include('admin.travel.edit')
 @include('layouts.delete_modal')
 @endsection
 
@@ -131,25 +134,6 @@
       });
     });
   </script>
-
-<script>
-    $('#editModal').on('show.bs.modal', function(event) {
-        let button = $(event.relatedTarget)
-        let id = button.data('id')
-        let tanggal = button.data('tanggal')
-        let nama = button.data('nama')
-        let jumlah = button.data('jumlah')
-        let harga = button.data('harga')
-        let modal = $(this)
-        console.log();
-        modal.find('.modal-body #id').val(id)
-        modal.find('.modal-body #tanggal').val(tanggal);
-        modal.find('.modal-body #nama').val(nama);
-        modal.find('.modal-body #jumlah').val(jumlah);
-        modal.find('.modal-body #harga').val(harga);
-
-    })
-</script>
 
 <script>
     $('.delete').on('click', function(){
