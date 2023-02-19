@@ -9,7 +9,7 @@ class MainTravelController extends Controller
 {
     public function index()
     {
-        $data = Travel::where('status' == 'tersedia')->get();
+        $data = Travel::whereStatus('tersedia')->get();
 
         return view('customer.travel.index', compact('data'));
     }
