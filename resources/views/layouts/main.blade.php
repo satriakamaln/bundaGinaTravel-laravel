@@ -83,7 +83,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pelayanan</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="{{ route('wisata') }}" class="dropdown-item">Wisata</a>
-                                <a href="single.html" class="dropdown-item">Rental Mobil</a>
+                                <a href="{{ route('rental') }}" class="dropdown-item">Rental Mobil</a>
                                 <a href="{{ route('travel') }}" class="dropdown-item">Travel</a>
                             </div>
                         </div>
