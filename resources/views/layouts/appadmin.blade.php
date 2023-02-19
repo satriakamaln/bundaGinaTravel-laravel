@@ -110,33 +110,33 @@
                   </p>
                 </a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Data Rental Mobil
                   </p>
                 </a>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a href="{{ route('pemesanan') }}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Data Pemesanan
                   </p>
                 </a>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a href="{{ route('pembayaran') }}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Data Pembayaran
                   </p>
                 </a>
-              </li>
+              </li> --}}
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="nav-icon fas fa-print"></i>
                   <p>
                     Laporan
                   </p>
