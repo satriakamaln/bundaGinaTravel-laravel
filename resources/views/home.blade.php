@@ -7,7 +7,7 @@ Dashboard
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
-        <h2>HWLLW WORLD</h2>
+        <h2>Lorem Ipsum</h2>
     </div><!-- /.container-fluid -->
 </section>
 
