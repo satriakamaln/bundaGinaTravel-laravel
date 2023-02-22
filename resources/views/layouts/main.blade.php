@@ -28,7 +28,7 @@
 
 <body>
     <!-- Topbar Start -->
-    <div class="container-fluid bg-light pt-3 d-none d-lg-block">
+    {{-- <div class="container-fluid bg-light pt-3 d-none d-lg-block">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Topbar End -->
 
 
@@ -91,7 +91,10 @@
                             @auth
                                 <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-item nav-link">{{ __('Logout') }}</a>
-                            @else
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                @else
                                 <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
                             @endauth
                         @endif
@@ -111,7 +114,7 @@
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="text-primary"><span class="text-white">TRAVEL</span>ER</h1>
+                    <h1 class="text-primary"><span class="text-white">BUNDAGINA</span>TRAVEL</h1>
                 </a>
                 <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>

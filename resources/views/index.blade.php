@@ -9,22 +9,42 @@ Index
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="{{ asset('front/img/carousel-1.jpg') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('images/bundagina1.jpg') }}" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Let's Discover The World Together</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                            <a href="{{ route('login') }}" class="btn btn-primary py-md-3 px-md-5 mt-2">Login Sekarang Juga</a>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{{ asset('front/img/carousel-2.jpg') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('images/bundagina2.jpg') }}" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                            <a href="{{ route('login') }}" class="btn btn-primary py-md-3 px-md-5 mt-2">Login Sekarang Juga</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{{ asset('images/bundagina3.jpg') }}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
+                            <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us</h1>
+                            <a href="{{ route('login') }}" class="btn btn-primary py-md-3 px-md-5 mt-2">Login Sekarang Juga</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{{ asset('images/bundagina4.jpg') }}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
+                            <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us</h1>
+                            <a href="{{ route('login') }}" class="btn btn-primary py-md-3 px-md-5 mt-2">Login Sekarang Juga</a>
                         </div>
                     </div>
                 </div>

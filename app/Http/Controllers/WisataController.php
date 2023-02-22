@@ -120,7 +120,7 @@ class WisataController extends Controller
     {
         try {
             $wisata->delete();
-            return redirect()->route('admin.wisata.index')->withSuccess('Data berhasil dihapus');
+            return back()->withSuccess('Data berhasil dihapus');
         } catch (Exception $exception) {
             return notify()->warning($exception->getMessage());
         }

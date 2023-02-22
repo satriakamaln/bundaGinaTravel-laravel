@@ -70,16 +70,19 @@
         </div>
     </div>
 </div> --}}
+@section('title')
+Login
+@endsection
 
 <div class="login-box">
     <div class="login-logo">
-      <a href="../../index2.html"><b>BUNDA GINA</b><br>TOUR AND TRAVEL</a>
+      <a href="#"><b>BUNDA GINA</b><br>TOUR AND TRAVEL</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Masukkan Email & Password</p>
-  
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
           <div class="input-group mb-3">
@@ -99,14 +102,6 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-8">
-              <div class="icheck-primary">
-                <input type="checkbox" id="remember">
-                <label for="remember">
-                  Remember Me
-                </label>
-              </div>
-            </div>
             <!-- /.col -->
             <div class="col-4">
               <button type="submit" class="btn btn-primary btn-block">
@@ -116,14 +111,14 @@
             <!-- /.col -->
           </div>
         </form>
-  
+
         <!-- /.social-auth-links -->
-  
+
         {{-- <p class="mb-1">
           <a href="forgot-password.html">I forgot my password</a>
         </p> --}}
         <p class="mb-0">
-          <a href="register.html" class="text-center">Register a new membership</a>
+          <a href="{{ route('register') }}" class="text-center">Daftar akun baru</a>
         </p>
       </div>
       <!-- /.login-card-body -->

@@ -48,7 +48,11 @@ Route::middleware(['admin'])->group(function() {
         Route::resource('user', UserController::class);
         Route::resource('mobil', MobilController::class);
         Route::resource('travel', TravelController::class);
-        Route::resource('wisata', WisataController::class);
+        Route::resource('wisata', WisataController::class)->except(['edit','destroy']);
+        Route::prefix('wisata')->name('wisata.')->group(function () {
+            Route::get('/{wisata}/edit', [WisataController::class, 'edit'])->name('edit');
+            Route::delete('/{wisata}', [WisataController::class, 'destroy'])->name('destroy');
+        });
 
     });
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

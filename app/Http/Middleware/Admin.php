@@ -22,7 +22,7 @@ class Admin
         }
         switch (Auth::user()->role) {
             case 0:
-                return redirect()->route();
+                return redirect()->route('main');
                 break;
             case 1:
                 return $next($request);
