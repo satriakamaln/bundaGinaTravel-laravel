@@ -48,6 +48,11 @@ Ubah Wisata
                                         placeholder="Masukan Lokasi" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="harga">Harga</label>
+                                    <input type="text" class="form-control" id="harga" name="harga" value="{{ $wisata->harga }}"
+                                        placeholder="Masukan Harga" required>
+                                </div>
+                                <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
                                     <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ $wisata->deskripsi }}"
                                         placeholder="Masukan Deskripsi" required>

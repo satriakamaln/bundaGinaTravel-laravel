@@ -69,6 +69,9 @@ Route::middleware(['admin'])->group(function() {
             Route::get('/mobil', [ReportController::class, 'mobilall'])->name('mobilall');
             Route::get('/travel', [ReportController::class, 'travelall'])->name('travelall');
             Route::get('/order', [ReportController::class, 'orderall'])->name('orderall');
+            Route::get('/orderwisata', [ReportController::class, 'orderawisata'])->name('orderwisata');
+            Route::get('/ordertravel', [ReportController::class, 'ordertravel'])->name('ordertravel');
+            Route::get('/orderrental', [ReportController::class, 'orderrental'])->name('orderrental');
             Route::get('/order/filter', [ReportController::class, 'orderfilter'])->name('orderfilter');
             Route::post('/order/date', [ReportController::class, 'orderdate'])->name('orderdate');
         });

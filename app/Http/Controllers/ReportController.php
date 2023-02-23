@@ -85,4 +85,33 @@ class ReportController extends Controller
 
         return $pdf->stream('Laporan Order.pdf');
     }
+
+    public function orderwisata()
+    {
+        $data = Order::where(['wisata_id', '=', !null],['status', '=', 'Menunggu'])->get();
+        $now = $this->now;
+        $pdf = PDF::loadView('admin.report.orderwisata', compact('now', 'data'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Order Wisata.pdf');
+    }
+    public function ordertravel()
+    {
+        $data = Order::where(['travel_id', '=', !null],['status', '=', 'Menunggu'])->get();
+        $now = $this->now;
+        $pdf = PDF::loadView('admin.report.order', compact('now', 'data'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Order Travel.pdf');
+    }
+
+    public function orderrental()
+    {
+        $data = Order::where(['mobil_id', '=', !null],['status', '=', 'Menunggu'])->get();
+        $now = $this->now;
+        $pdf = PDF::loadView('admin.report.order', compact('now', 'data'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Order Rental.pdf');
+    }
 }

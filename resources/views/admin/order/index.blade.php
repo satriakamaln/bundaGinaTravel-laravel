@@ -43,6 +43,12 @@ Order
                             </a> --}}
                             <a type="button" href="{{ route('admin.report.orderall') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak
                             </a>
+                            <a type="button" href="{{ route('admin.report.orderwisata') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Wisata
+                            </a>
+                            <a type="button" href="{{ route('admin.report.orderrental') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Rental
+                            </a>
+                            <a type="button" href="{{ route('admin.report.ordertravel') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Travel
+                            </a>
                             <a type="button" href="{{ route('admin.report.orderfilter') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Tanggal
                             </a>
 
