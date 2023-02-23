@@ -69,17 +69,26 @@ Route::middleware(['admin'])->group(function() {
             Route::get('/mobil', [ReportController::class, 'mobilall'])->name('mobilall');
             Route::get('/travel', [ReportController::class, 'travelall'])->name('travelall');
             Route::get('/order', [ReportController::class, 'orderall'])->name('orderall');
-            Route::get('/orderwisata', [ReportController::class, 'orderawisata'])->name('orderwisata');
+            Route::get('/orderwisata', [ReportController::class, 'orderwisata'])->name('orderwisata');
             Route::get('/ordertravel', [ReportController::class, 'ordertravel'])->name('ordertravel');
             Route::get('/orderrental', [ReportController::class, 'orderrental'])->name('orderrental');
             Route::get('/order/filter', [ReportController::class, 'orderfilter'])->name('orderfilter');
+            Route::get('/order/filterwisata', [ReportController::class, 'orderfilterwisata'])->name('orderfilterwisata');
+            Route::get('/order/filterrental', [ReportController::class, 'orderfilterrental'])->name('orderfilterrental');
+            Route::get('/order/filtertravel', [ReportController::class, 'orderfiltertravel'])->name('orderfiltertravel');
             Route::post('/order/date', [ReportController::class, 'orderdate'])->name('orderdate');
+            Route::post('/order/date/wisata', [ReportController::class, 'orderdatewisata'])->name('orderdatewisata');
+            Route::post('/order/date/travel', [ReportController::class, 'orderdatetravel'])->name('orderdatetravel');
+            Route::post('/order/date/rental', [ReportController::class, 'orderdaterental'])->name('orderdaterental');
+            Route::get('/verif/filter/wisata', [ReportController::class, 'veriffilterwisata'])->name('veriffilterwisata');
+            Route::get('/verif/filter/rental', [ReportController::class, 'veriffilterrental'])->name('veriffilterrental');
+            Route::get('/verif/filter/travel', [ReportController::class, 'veriffiltertravel'])->name('veriffiltertravel');
+            Route::post('/verif/date/wisata', [ReportController::class, 'verifdatewisata'])->name('verifdatewisata');
+            Route::post('/verif/date/travel', [ReportController::class, 'verifdatetravel'])->name('verifdatetravel');
+            Route::post('/verif/date/rental', [ReportController::class, 'verifdaterental'])->name('verifdaterental');
+            Route::get('/verif/filter', [ReportController::class, 'veriffilter'])->name('veriffilter');
         });
 
     });
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-        Route::get('/pemesanan', [App\Http\Controllers\PemesananController::class, 'index'])->name('pemesanan');
-
-        Route::get('/pembayaran', [App\Http\Controllers\PembayaranController::class, 'index'])->name('pembayaran');
 });

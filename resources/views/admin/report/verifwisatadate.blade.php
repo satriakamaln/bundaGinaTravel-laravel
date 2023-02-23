@@ -110,9 +110,9 @@
     <div class="container">
         <hr style="margin-top:1px;">
         <div class="isi">
-            <h2 style="text-align:center;">LAPORAN ORDER TRAVEL</h2>
-            {{-- <h3 style="text-align:center;">{{Carbon\carbon::parse($start)->translatedFormat('d-F-Y')}} s/d
-                {{Carbon\carbon::parse($end)->translatedFormat('d-F-Y')}}</h3> --}}
+            <h2 style="text-align:center;">LAPORAN ORDER WISATA TERVERIFIKASI</h2>
+            <h3 style="text-align:center;">{{Carbon\carbon::parse($start)->translatedFormat('d-F-Y')}} s/d
+                {{Carbon\carbon::parse($end)->translatedFormat('d-F-Y')}}</h3>
             <br>
             <table id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
                 aria-describedby="myTable_info">

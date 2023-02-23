@@ -77,7 +77,7 @@ class ReportController extends Controller
     {
         $start  = $request->start;
         $end  = $request->end;
-        $data = Order::wherebetween('tanggal', [$start, $end])->get();
+        $data = Order::wherebetween('tanggal', [$start, $end])->whereStatus('Menunggu')->get();
         $now = $this->now;
 
         $pdf = PDF::loadView('admin.report.orderdate', compact('now', 'data', 'start', 'end'));
@@ -88,7 +88,7 @@ class ReportController extends Controller
 
     public function orderwisata()
     {
-        $data = Order::where(['wisata_id', '=', !null],['status', '=', 'Menunggu'])->get();
+        $data = Order::whereNotNull('wisata_id')->whereStatus('Menunggu')->get();
         $now = $this->now;
         $pdf = PDF::loadView('admin.report.orderwisata', compact('now', 'data'));
         $pdf->setPaper('a4', 'landscape');
@@ -97,9 +97,9 @@ class ReportController extends Controller
     }
     public function ordertravel()
     {
-        $data = Order::where(['travel_id', '=', !null],['status', '=', 'Menunggu'])->get();
+        $data = Order::whereNotNull('travel_id')->whereStatus('Menunggu')->get();
         $now = $this->now;
-        $pdf = PDF::loadView('admin.report.order', compact('now', 'data'));
+        $pdf = PDF::loadView('admin.report.ordertravel', compact('now', 'data'));
         $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Order Travel.pdf');
@@ -107,11 +107,125 @@ class ReportController extends Controller
 
     public function orderrental()
     {
-        $data = Order::where(['mobil_id', '=', !null],['status', '=', 'Menunggu'])->get();
+        $data = Order::whereNotNull('mobil_id')->whereStatus('Menunggu')->get();
         $now = $this->now;
-        $pdf = PDF::loadView('admin.report.order', compact('now', 'data'));
+        $pdf = PDF::loadView('admin.report.orderrental', compact('now', 'data'));
         $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Order Rental.pdf');
+    }
+
+    public function orderfilterwisata()
+    {
+        return view('admin.order.filterwisata');
+    }
+
+    public function orderfiltertravel()
+    {
+        return view('admin.order.filtertravel');
+    }
+
+    public function orderfilterrental()
+    {
+        return view('admin.order.filterrental');
+    }
+
+    public function orderdatewisata(Request $request)
+    {
+        $start  = $request->start;
+        $end  = $request->end;
+        $data = Order::wherebetween('tanggal', [$start, $end])->whereNotNull('wisata_id')->whereStatus('Menunggu')->get();
+        $now = $this->now;
+
+        $pdf = PDF::loadView('admin.report.orderwisatadate', compact('now', 'data', 'start', 'end'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Order Wisata.pdf');
+    }
+
+    public function orderdatetravel(Request $request)
+    {
+        $start  = $request->start;
+        $end  = $request->end;
+        $data = Order::wherebetween('tanggal', [$start, $end])->whereNotNull('travel_id')->whereStatus('Menunggu')->get();
+        $now = $this->now;
+
+        $pdf = PDF::loadView('admin.report.ordertraveldate', compact('now', 'data', 'start', 'end'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Order Travel.pdf');
+    }
+
+    public function orderdaterental(Request $request)
+    {
+        $start  = $request->start;
+        $end  = $request->end;
+        $data = Order::wherebetween('tanggal', [$start, $end])->whereNotNull('mobil_id')->whereStatus('Menunggu')->get();
+        $now = $this->now;
+
+        $pdf = PDF::loadView('admin.report.orderrentaldate', compact('now', 'data', 'start', 'end'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Order Rental.pdf');
+    }
+
+
+    public function veriffilter()
+    {
+        return view('admin.verif.filter');
+    }
+    public function veriffilterwisata()
+    {
+        return view('admin.verif.filterwisata');
+    }
+
+    public function veriffiltertravel()
+    {
+        return view('admin.verif.filtertravel');
+    }
+
+    public function veriffilterrental()
+    {
+        return view('admin.verif.filterrental');
+    }
+
+    public function verifdatewisata(Request $request)
+    {
+        $start  = $request->start;
+        $end  = $request->end;
+        $data = Order::wherebetween('tanggal', [$start, $end])->whereTipe('Wisata')->whereStatus('Terverifikasi')->get();
+        $now = $this->now;
+
+        $pdf = PDF::loadView('admin.report.verifwisatadate', compact('now', 'data', 'start', 'end'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Wisata Terverifikasi.pdf');
+    }
+
+    public function verifdatetravel(Request $request)
+    {
+        $start  = $request->start;
+        $end  = $request->end;
+        $data = Order::wherebetween('tanggal', [$start, $end])->whereTipe('Travel')->whereStatus('Terverifikasi')->get();
+        $now = $this->now;
+        // dd($data);
+
+        $pdf = PDF::loadView('admin.report.veriftraveldate', compact('now', 'data', 'start', 'end'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Travel Terverifikasi.pdf');
+    }
+
+    public function verifdaterental(Request $request)
+    {
+        $start  = $request->start;
+        $end  = $request->end;
+        $data = Order::wherebetween('tanggal', [$start, $end])->whereTipe('Rental')->whereStatus('Terverifikasi')->get();
+        $now = $this->now;
+
+        $pdf = PDF::loadView('admin.report.verifrentaldate', compact('now', 'data', 'start', 'end'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Rental Terverifikasi.pdf');
     }
 }

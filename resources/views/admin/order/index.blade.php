@@ -41,15 +41,21 @@ Order
                             {{-- <a class="btn  btn-primary" href="{{ route('admin.travel.create') }}">
                                 <span><i class="feather icon-plus"></i> Tambah Data Travel</span>
                             </a> --}}
-                            <a type="button" href="{{ route('admin.report.orderall') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak
+                            <a type="button" href="{{ route('admin.report.orderall') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Order
                             </a>
-                            <a type="button" href="{{ route('admin.report.orderwisata') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Wisata
+                            <a type="button" href="{{ route('admin.report.orderwisata') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Wisata
                             </a>
-                            <a type="button" href="{{ route('admin.report.orderrental') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Rental
+                            <a type="button" href="{{ route('admin.report.orderrental') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Rental
                             </a>
-                            <a type="button" href="{{ route('admin.report.ordertravel') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Travel
+                            <a type="button" href="{{ route('admin.report.ordertravel') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Travel
                             </a>
-                            <a type="button" href="{{ route('admin.report.orderfilter') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Tanggal
+                            <a type="button" href="{{ route('admin.report.orderfilter') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Order Tanggal
+                            </a>
+                            <a type="button" href="{{ route('admin.report.orderfilterwisata') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Wisata Tanggal
+                            </a>
+                            <a type="button" href="{{ route('admin.report.orderfiltertravel') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Travel Tanggal
+                            </a>
+                            <a type="button" href="{{ route('admin.report.orderfilterrental') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Rental Tanggal
                             </a>
 
                         </td>
@@ -87,7 +93,7 @@ Order
                                         Hari
                                         @endif
                                     </td>
-                                    <td>{{ $d->harga }}
+                                    <td>Rp. {{number_format($d->harga, 0, ',', '.')}},-
                                         @if($d->wisata_id == !null)
                                         /Orang
                                         @elseif($d->travel_id == !null)
@@ -96,7 +102,7 @@ Order
                                         /Hari
                                         @endif
                                     </td>
-                                    <td>Rp. {{ $d->total }} </td>
+                                    <td>Rp. {{number_format($d->total, 0, ',', '.')}},- </td>
                                     <td>
                                         @if ($d->foto == null)
                                             Belum Ada Bukti

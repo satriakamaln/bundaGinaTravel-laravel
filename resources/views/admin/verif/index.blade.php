@@ -38,11 +38,23 @@ Order Terverifikasi
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            {{-- <a class="btn  btn-primary" href="{{ route('admin.travel.create') }}">
-                                <span><i class="feather icon-plus"></i> Tambah Data Travel</span>
-                            </a> --}}
-                            <a type="button" href="" class="btn  btn-primary float-right" target="_blank">Cetak
+                            <a type="button" href="{{ route('admin.report.orderall') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Order Terverifikasi
                             </a>
+                            <a type="button" href="{{ route('admin.report.orderwisata') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Wisata
+                            </a>
+                            <a type="button" href="{{ route('admin.report.orderrental') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Rental
+                            </a>
+                            <a type="button" href="{{ route('admin.report.ordertravel') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Travel
+                            </a>
+                            <a type="button" href="{{ route('admin.report.veriffilter') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Terverifikasi Tanggal
+                            </a>
+                            <a type="button" href="{{ route('admin.report.veriffilterwisata') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Wisata Tanggal
+                            </a>
+                            <a type="button" href="{{ route('admin.report.veriffiltertravel') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Travel Tanggal
+                            </a>
+                            <a type="button" href="{{ route('admin.report.veriffilterrental') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Rental Tanggal
+                            </a>
+
                         </td>
                     </div>
                     <!-- /.card-header -->
@@ -77,7 +89,7 @@ Order Terverifikasi
                                         Hari
                                         @endif
                                     </td>
-                                    <td>{{ $d->harga }}
+                                    <td>Rp. {{number_format($d->harga, 0, ',', '.')}},-
                                         @if($d->wisata_id == !null)
                                         /Orang
                                         @elseif($d->travel_id == !null)
@@ -86,7 +98,7 @@ Order Terverifikasi
                                         /Hari
                                         @endif
                                     </td>
-                                    <td>Rp. {{ $d->total }} </td>
+                                    <td>Rp. {{number_format($d->total, 0, ',', '.')}},- </td>
                                     <td>
                                         @if ($d->foto == null)
                                             Belum Ada Bukti
