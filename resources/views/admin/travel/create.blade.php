@@ -1,4 +1,4 @@
-@extends('home')
+@extends('layouts.appadmin')
 
 @section('title')
 Tambah Travel

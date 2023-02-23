@@ -1,4 +1,4 @@
-@extends('home')
+@extends('layouts.appadmin')
 
 @section('title')
 Ubah Travel
