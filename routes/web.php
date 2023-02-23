@@ -63,6 +63,12 @@ Route::middleware(['admin'])->group(function() {
             Route::get('/{wisata}/edit', [WisataController::class, 'edit'])->name('edit');
             Route::delete('/{wisata}', [WisataController::class, 'destroy'])->name('destroy');
         });
+        Route::name('report.')->prefix('laporan')->group(function () {
+            Route::get('/userall', [ReportController::class, 'userall'])->name('userall');
+            Route::get('/wisata', [ReportController::class, 'wisataall'])->name('wisataall');
+            Route::get('/mobil', [ReportController::class, 'mobilall'])->name('mobilall');
+            Route::get('/travel', [ReportController::class, 'travelall'])->name('travelall');
+        });
 
     });
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

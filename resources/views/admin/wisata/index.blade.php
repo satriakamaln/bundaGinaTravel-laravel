@@ -41,7 +41,7 @@ Wisata
                             <a class="btn  btn-primary" href="{{ route('admin.wisata.create') }}">
                                 <span><i class="feather icon-plus"></i> Tambah Data Wisata</span>
                             </a>
-                            <a type="button" href="" class="btn  btn-primary float-right" target="_blank">Cetak
+                            <a type="button" href="{{ route('admin.report.wisataall') }}" class="btn  btn-primary float-right" target="_blank">Cetak
                             </a>
                         </td>
                     </div>

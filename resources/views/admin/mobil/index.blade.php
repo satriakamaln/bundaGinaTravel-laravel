@@ -41,7 +41,7 @@ Mobil
                             <a href="{{ route('admin.mobil.create') }}" class="btn  btn-primary">
                                 <span><i class="feather icon-plus"></i> Tambah Data Mobil</span>
                             </a>
-                            <a type="button" href="" class="btn  btn-primary float-right" target="_blank">Cetak
+                            <a type="button" href="{{ route('admin.report.mobilall') }}" class="btn  btn-primary float-right" target="_blank">Cetak
                             </a>
                         </td>
                     </div>
