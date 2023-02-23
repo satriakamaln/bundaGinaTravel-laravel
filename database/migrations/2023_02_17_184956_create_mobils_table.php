@@ -19,6 +19,7 @@ class CreateMobilsTable extends Migration
             $table->string('jenis');
             $table->string('no_plat');
             $table->string('tipe');
+            $table->integer('harga');
             $table->timestamps();
         });
     }

@@ -5,6 +5,10 @@ use App\Http\Controllers\TravelController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MainWisataController;
 use App\Http\Controllers\MainTravelController;
@@ -36,8 +40,9 @@ Route::get('rental', [MainRentalController::class, 'index'])->name('rental');
 Auth::routes();
 
 Route::middleware(['pelanggan'])->group(function() {
-
-
+    Route::post('wisata', [MainWisataController::class, 'store'])->name('wisatastore');
+    Route::post('travel', [MainTravelController::class, 'store'])->name('travelstore');
+    Route::post('rental', [MainRentalController::class, 'store'])->name('rentalstore');
 });
 
 Route::middleware(['admin'])->group(function() {
@@ -56,12 +61,6 @@ Route::middleware(['admin'])->group(function() {
 
     });
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-        // Route::get('/travelindex', [App\Http\Controllers\TravelController::class, 'index'])->name('travel');
-        // Route::post('/travelindex', [App\Http\Controllers\TravelController::class, 'create'])->name('travelcreate');
-        // Route::put('/traveledit', [App\Http\Controllers\TravelController::class, 'edit'])->name('traveledit');
-        // Route::put('/travelupdate', [App\Http\Controllers\TravelController::class, 'create'])->name('travelupdate');
-        // Route::delete('/traveldelete/{id}', [App\Http\Controllers\TravelController::class, 'destroy'])->name('traveldelete');
 
         // Route::get('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'index'])->name('tourwisata');
         // Route::post('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'create'])->name('tourwisatacreate');

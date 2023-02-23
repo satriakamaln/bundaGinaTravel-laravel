@@ -10,8 +10,13 @@ class Mobil extends Model
 {
     protected $guarded = ['id'];
 
-    public function Travel()
+    public function travel()
     {
         return $this->hasMany(Travel::class);
+    }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
     }
 }

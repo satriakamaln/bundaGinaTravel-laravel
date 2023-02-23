@@ -24,6 +24,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
 </head>
 
 <body>
@@ -200,6 +201,46 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('front/js/main.js') }}"></script>
+
+    <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+
+    <script>
+      @if(Session::has('success'))
+      toastr.options =
+      {
+          "closeButton" : true,
+          "progressBar" : true
+      }
+              toastr.success("{{ session('success') }}");
+      @endif
+
+      @if(Session::has('error'))
+      toastr.options =
+      {
+          "closeButton" : true,
+          "progressBar" : true
+      }
+              toastr.error("{{ session('error') }}");
+      @endif
+
+      @if(Session::has('info'))
+      toastr.options =
+      {
+          "closeButton" : true,
+          "progressBar" : true
+      }
+              toastr.info("{{ session('info') }}");
+      @endif
+
+      @if(Session::has('warning'))
+      toastr.options =
+      {
+          "closeButton" : true,
+          "progressBar" : true
+      }
+              toastr.warning("{{ session('warning') }}");
+      @endif
+    </script>
 </body>
 
 </html>

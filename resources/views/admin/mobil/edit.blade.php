@@ -57,6 +57,11 @@ Ubah Mobil
                                     <input type="text" class="form-control" id="tipe" name="tipe" value="{{ $mobil->tipe }}"
                                         placeholder="Masukan Tipe" required>
                                 </div>
+                                <div class="form-group">
+                                    <label for="harga">Harga Sewa</label>
+                                    <input type="text" class="form-control" id="harga" name="harga" value="{{ $mobil->harga }}"
+                                        placeholder="Masukan Harga" required>
+                                </div>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <td>

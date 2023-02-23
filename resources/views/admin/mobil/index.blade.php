@@ -55,6 +55,7 @@ Mobil
                                     <th>Jenis</th>
                                     <th>No Plat</th>
                                     <th>Tipe</th>
+                                    <th>Harga Sewa</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -66,6 +67,7 @@ Mobil
                                     <td>{{ $d->jenis }}</td>
                                     <td>{{ $d->noplat }}</td>
                                     <td>{{ $d->tipe }}</td>
+                                    <td>Rp.{{ $d->harga }}/hari</td>
                                     <td>
                                         <a class="btn btn-sm btn-info text-white" href="{{ route('admin.mobil.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>

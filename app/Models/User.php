@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Travel;
+use App\Models\Order;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -15,9 +16,14 @@ class User extends Authenticatable
 
     protected $guarded = ['id'];
 
-    public function Travel()
+    public function travel()
     {
         return $this->hasMany(Travel::class);
+    }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
     }
 
     /**

@@ -387,6 +387,7 @@ Travel
                             <tr>
                                 <th>No</th>
                                 <th>Merk</th>
+                                <th>Harga Sewa/Hari</th>
                             </tr>
                         </thead>
                         <tbody class="text-left text-white">
@@ -394,6 +395,7 @@ Travel
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $d->merk }}, {{ $d->jenis }}, {{ $d->tipe }}</td>
+                                <td>Rp.{{ $d->harga }}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -405,15 +407,16 @@ Travel
                             <h1 class="text-white m-0">Order Sekarang</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-white p-5">
-                            <form>
+                            <form action="{{ route('rentalstore') }}" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    <input type="date" class="form-control p-4" placeholder="Tanggal Rental" required="required" />
+                                    <input type="date" name="tanggal" class="form-control p-4" placeholder="Tanggal Rental" required="required" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control p-4" placeholder="Lama Rental (hari)" required="required" />
+                                    <input type="number" name="jumlah" class="form-control p-4" placeholder="Lama Rental (hari)" required="required" />
                                 </div>
                                 <div class="form-group">
-                                    <select class="custom-select px-4" style="height: 47px;">
+                                    <select name="mobil_id" class="custom-select px-4" style="height: 47px;" required>
                                         <option selected>Silahkan Mobil</option>
                                         @foreach ($data as $d)
                                         <option value="{{ $d->id }}">{{ $d->merk }},{{ $d->jenis }}, {{ $d->tipe }}</option>
