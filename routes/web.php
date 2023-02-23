@@ -12,6 +12,7 @@ use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TravelController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\MainOrderController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\MainRentalController;
@@ -32,7 +33,7 @@ use App\Http\Controllers\MainWisataController;
 
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('wisata', [MainWisataController::class, 'index'])->name('wisata');
-Route::get('wisata/{{wisata}}/show', [MainWisataController::class, 'show'])->name('wisatashow');
+Route::get('wisata/{wisata}/show', [MainWisataController::class, 'show'])->name('wisatashow');
 Route::get('travel', [MainTravelController::class, 'index'])->name('travel');
 Route::get('rental', [MainRentalController::class, 'index'])->name('rental');
 
@@ -42,6 +43,9 @@ Route::middleware(['pelanggan'])->group(function() {
     Route::post('wisata', [MainWisataController::class, 'store'])->name('wisatastore');
     Route::post('travel', [MainTravelController::class, 'store'])->name('travelstore');
     Route::post('rental', [MainRentalController::class, 'store'])->name('rentalstore');
+
+    Route::get('history', [HistoryController::class, 'index'])->name('history');
+    Route::get('history/{id}', [HistoryController::class, 'cetak'])->name('nota');
 
     Route::prefix('customer')->name('customer.')->group(function () {
         Route::resource('order', MainOrderController::class);

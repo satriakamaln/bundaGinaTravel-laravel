@@ -93,7 +93,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Order</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="{{ route('customer.order.index') }}" class="dropdown-item">Order</a>
-                                <a href="" class="dropdown-item">History</a>
+                                <a href="{{ route('history') }}" class="dropdown-item">History</a>
                             </div>
                         </div>
                         @endauth
