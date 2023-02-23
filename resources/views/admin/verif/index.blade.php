@@ -38,13 +38,13 @@ Order Terverifikasi
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            <a type="button" href="{{ route('admin.report.orderall') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Order Terverifikasi
+                            <a type="button" href="{{ route('admin.report.verifall') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Order Terverifikasi
                             </a>
-                            <a type="button" href="{{ route('admin.report.orderwisata') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Wisata
+                            <a type="button" href="{{ route('admin.report.verifwisata') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Wisata
                             </a>
-                            <a type="button" href="{{ route('admin.report.orderrental') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Rental
+                            <a type="button" href="{{ route('admin.report.verifrental') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Rental
                             </a>
-                            <a type="button" href="{{ route('admin.report.ordertravel') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Travel
+                            <a type="button" href="{{ route('admin.report.veriftravel') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Travel
                             </a>
                             <a type="button" href="{{ route('admin.report.veriffilter') }}" style="margin-left: 5px;" class="btn btn-sm btn-primary float-right" target="_blank">Terverifikasi Tanggal
                             </a>

@@ -29,7 +29,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form method="post" action="{{ route('admin.report.orderdate') }}" target="_blank">
+                        <form method="post" action="{{ route('admin.report.verifdate') }}" target="_blank">
                             <div class="modal-body">
                                 @csrf
                                 <div class="form-group">

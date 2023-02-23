@@ -110,7 +110,7 @@
     <div class="container">
         <hr style="margin-top:1px;">
         <div class="isi">
-            <h2 style="text-align:center;">LAPORAN ORDER TERVERIFIKASI</h2>
+            <h2 style="text-align:center;">LAPORAN ORDER WISATA TERVERIFIKASI</h2>
             {{-- <h3 style="text-align:center;">{{Carbon\carbon::parse($start)->translatedFormat('d-F-Y')}} s/d
                 {{Carbon\carbon::parse($end)->translatedFormat('d-F-Y')}}</h3> --}}
             <br>
@@ -121,7 +121,6 @@
                     <tr>
                         <th>No</th>
                         <th>Pelanggan</th>
-                        <th>Tipe</th>
                         <th>Tanggal</th>
                         <th>Jumlah</th>
                         <th>Harga</th>
@@ -135,7 +134,6 @@
                     <tr>
                         <td style="text-align: left">{{$loop->iteration}}</td>
                         <td style="text-align: left">{{ $d->user->name }}</td>
-                        <td style="text-align: left">{{ $d->tipe }}</td>
                         <td style="text-align: left">@if($d->mobil_id == !null)
                             {{carbon\carbon::parse($d->tanggal)->translatedFormat('d F Y')}} - {{carbon\carbon::parse($d->tanggal_selesai)->translatedFormat('d F Y')}}
                             @else

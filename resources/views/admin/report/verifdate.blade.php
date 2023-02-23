@@ -111,8 +111,8 @@
         <hr style="margin-top:1px;">
         <div class="isi">
             <h2 style="text-align:center;">LAPORAN ORDER TERVERIFIKASI</h2>
-            {{-- <h3 style="text-align:center;">{{Carbon\carbon::parse($start)->translatedFormat('d-F-Y')}} s/d
-                {{Carbon\carbon::parse($end)->translatedFormat('d-F-Y')}}</h3> --}}
+            <h3 style="text-align:center;">{{Carbon\carbon::parse($start)->translatedFormat('d-F-Y')}} s/d
+                {{Carbon\carbon::parse($end)->translatedFormat('d-F-Y')}}</h3>
             <br>
             <table id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
                 aria-describedby="myTable_info">
@@ -123,6 +123,7 @@
                         <th>Pelanggan</th>
                         <th>Tipe</th>
                         <th>Tanggal</th>
+                        <th>Status</th>
                         <th>Jumlah</th>
                         <th>Harga</th>
                         <th>Total</th>
@@ -142,6 +143,7 @@
                             {{carbon\carbon::parse($d->tanggal)->translatedFormat('d F Y')}}
                             @endif
                         </td>
+                        <td style="text-align: left">{{ $d->status }}</td>
                         <td style="text-align: left">{{ $d->jumlah }}
                             @if($d->wisata_id == !null)
                             Orang
@@ -169,6 +171,8 @@
                             @elseif($d->mobil_id == !null)
                             {{carbon\carbon::parse($d->tanggal)->translatedFormat('d F Y')}} - {{carbon\carbon::parse($d->tanggal_selesai)->translatedFormat('d F Y')}}
                             @endif
+                        </td>
+
                     </tr>
                     @endforeach
 

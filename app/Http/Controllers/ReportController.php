@@ -189,6 +189,19 @@ class ReportController extends Controller
         return view('admin.verif.filterrental');
     }
 
+    public function verifdate(Request $request)
+    {
+        $start  = $request->start;
+        $end  = $request->end;
+        $data = Order::wherebetween('tanggal', [$start, $end])->whereStatus('Terverifikasi')->get();
+        $now = $this->now;
+
+        $pdf = PDF::loadView('admin.report.verifdate', compact('now', 'data', 'start', 'end'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Wisata Terverifikasi.pdf');
+    }
+
     public function verifdatewisata(Request $request)
     {
         $start  = $request->start;
@@ -227,5 +240,45 @@ class ReportController extends Controller
         $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Rental Terverifikasi.pdf');
+    }
+
+    public function verifall()
+    {
+        $data = Order::whereStatus('Terverifikasi')->get();
+        $now = $this->now;
+        $pdf = PDF::loadView('admin.report.verif', compact('now', 'data'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Verifikasi Wisata.pdf');
+    }
+
+    public function verifwisata()
+    {
+        $data = Order::whereNotNull('wisata_id')->whereStatus('Terverifikasi')->get();
+        $now = $this->now;
+        $pdf = PDF::loadView('admin.report.verifwisata', compact('now', 'data'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Verifikasi Wisata.pdf');
+    }
+
+    public function veriftravel()
+    {
+        $data = Order::whereNotNull('travel_id')->whereStatus('Terverifikasi')->get();
+        $now = $this->now;
+        $pdf = PDF::loadView('admin.report.veriftravel', compact('now', 'data'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Verifikasi Travel.pdf');
+    }
+
+    public function verifrental()
+    {
+        $data = Order::whereNotNull('mobil_id')->whereStatus('Terverifikasi')->get();
+        $now = $this->now;
+        $pdf = PDF::loadView('admin.report.verifrental', compact('now', 'data'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Verifikasi Rental.pdf');
     }
 }
