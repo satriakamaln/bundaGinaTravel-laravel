@@ -411,20 +411,20 @@ Travel
                             <h1 class="text-white m-0">Order Sekarang</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-white p-5">
-                            <form>
+                            <form action="{{ route('travelstore') }}" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Jumlah Orang" required="required" />
+                                    <input type="number" name="jumlah" class="form-control p-4" placeholder="Jumlah Orang" required="required" />
                                 </div>
                                 {{-- <div class="form-group">
                                     <input type="email" class="form-control p-4" placeholder="Your email" required="required" />
                                 </div> --}}
                                 <div class="form-group">
-                                    <select class="custom-select px-4" style="height: 47px;">
+                                    <select name="travel_id" class="custom-select px-4" style="height: 47px;">
                                         <option selected>Silahkan Pilih Jadwal</option>
                                         @foreach ($data as $d)
                                         <option value="{{ $d->id }}">{{ $d->kota_asal }}, Tujuan : {{ $d->tujuan }}</option>
                                         @endforeach
-
                                     </select>
                                 </div>
                                 <div>

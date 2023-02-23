@@ -110,6 +110,14 @@
                   </p>
                 </a>
               </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.travel.index') }}" class="nav-link">
+                  <i class="nav-icon fas fa-clipboard-list"></i>
+                  <p>
+                    Data Order
+                  </p>
+                </a>
+              </li>
               {{-- <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>

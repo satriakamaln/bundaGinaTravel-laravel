@@ -17,9 +17,23 @@ class MainTravelController extends Controller
         return view('customer.travel.index', compact('data'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $user = Auth::user()->id;
+        $jumlah = $request->jumlah;
+        $input = $request->all();
+        $input['user_id'] = $user;
+        $input['status'] = 'Menunggu';
+        $input['tipe'] = 'Travel';
+        $travel = Travel::whereId($request->travel_id)->first();
+        $harga = $travel->harga;
+        $input['harga'] = $harga;
+        $input['total'] = $jumlah * $harga;
+        //dd($input);
 
+        Order::create($input);
+
+        return redirect()->route('travel')->withSuccess('Order Berhasil Dilakukan, Silahkan upload Bukti Pembayaran Anda');
     }
 
     public function edit()

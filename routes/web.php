@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('wisata', [MainWisataController::class, 'index'])->name('wisata');
+Route::get('wisata/{{wisata}}/show', [MainWisataController::class, 'show'])->name('wisatashow');
 Route::get('travel', [MainTravelController::class, 'index'])->name('travel');
 Route::get('rental', [MainRentalController::class, 'index'])->name('rental');
 
@@ -43,6 +44,8 @@ Route::middleware(['pelanggan'])->group(function() {
     Route::post('wisata', [MainWisataController::class, 'store'])->name('wisatastore');
     Route::post('travel', [MainTravelController::class, 'store'])->name('travelstore');
     Route::post('rental', [MainRentalController::class, 'store'])->name('rentalstore');
+
+    Route::get('order', [MainOrderController::class, 'index'])->name('order');
 });
 
 Route::middleware(['admin'])->group(function() {

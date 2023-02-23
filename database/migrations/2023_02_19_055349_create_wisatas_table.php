@@ -18,6 +18,7 @@ class CreateWisatasTable extends Migration
             $table->string('nama_wisata');
             $table->string('lokasi');
             $table->string('deskripsi');
+            $table->string('harga');
             $table->string('foto')->nullable();
             $table->timestamps();
         });

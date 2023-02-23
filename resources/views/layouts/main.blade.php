@@ -88,6 +88,15 @@
                                 <a href="{{ route('travel') }}" class="dropdown-item">Travel</a>
                             </div>
                         </div>
+                        @auth
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Order</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{ route('order') }}" class="dropdown-item">Order</a>
+                                <a href="{{ route('order') }}" class="dropdown-item">History</a>
+                            </div>
+                        </div>
+                        @endauth
                         @if (Route::has('login'))
                             @auth
                                 <a href="{{ route('logout') }}"
