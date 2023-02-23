@@ -7,14 +7,136 @@ Dashboard
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
-        <h2>Lorem Ipsum</h2>
+        <h2>Dashboard</h2>
     </div><!-- /.container-fluid -->
 </section>
 
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
-      <h2>Lorem ipsum dolor sit amet.</h2>
+        <!-- Info boxes -->
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-user"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">User</span>
+                        <span class="info-box-number">
+                            {{ $user }}
+
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-info elevation-1"><i
+                            class="fas fa-car"></i></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Mobil</span>
+                        <span class="info-box-number">{{ $mobil }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <div class="clearfix hidden-md-up"></div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-route"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Travel</span>
+                        <span class="info-box-number">{{ $travel }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-compass"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Wisata</span>
+                        <span class="info-box-number">{{ $wisata }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-list"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Order</span>
+                        <span class="info-box-number">{{ $order }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-check"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Order Terverifikasi</span>
+                        <span class="info-box-number">{{ $verif }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-table"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Order</span>
+                        <span class="info-box-number">{{ $totalorder }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            {{-- <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-address-book"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Bantuan</span>
+                        <span class="info-box-number">{{ $bantuan }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row --> --}}
+
+
+        <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
 </section>

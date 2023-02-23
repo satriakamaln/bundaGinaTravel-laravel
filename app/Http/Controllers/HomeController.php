@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Mobil;
+use App\Models\Order;
+use App\Models\Travel;
+use App\Models\Wisata;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +28,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = User::all()->count();
+        $mobil = Mobil::all()->count();
+        $order = Order::whereStatus('Menunggu')->count();
+        $verif = Order::whereStatus('Terverifikasi')->count();
+        $totalorder = Order::all()->count();
+        $travel = Travel::all()->count();
+        $wisata = Wisata::all()->count();
+
+        return view('home', compact('user','mobil','order','travel','wisata','verif','totalorder'));
     }
 }
