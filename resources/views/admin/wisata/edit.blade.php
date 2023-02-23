@@ -52,11 +52,6 @@ Ubah Wisata
                                     <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ $wisata->deskripsi }}"
                                         placeholder="Masukan Deskripsi" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="tujuan">Tujuan</label>
-                                    <input type="text" class="form-control" id="tujuan" name="tujuan" value="{{ $wisata->tujuan }}"
-                                        placeholder="Masukan Tujuan" required>
-                                </div>
                                 <div class="form-group" bis_skin_checked="1">
                                     <label for="exampleInputFile">Foto Wisata</label>
                                     <div class="input-group" bis_skin_checked="1">

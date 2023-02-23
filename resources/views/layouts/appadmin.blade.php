@@ -111,10 +111,18 @@
                 </a>
               </li>
             <li class="nav-item">
-                <a href="{{ route('admin.travel.index') }}" class="nav-link">
+                <a href="{{ route('admin.order.index') }}" class="nav-link">
                   <i class="nav-icon fas fa-clipboard-list"></i>
                   <p>
                     Data Order
+                  </p>
+                </a>
+              </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.verif.index') }}" class="nav-link">
+                  <i class="nav-icon fas fa-check"></i>
+                  <p>
+                    Data Order Terverifikasi
                   </p>
                 </a>
               </li>

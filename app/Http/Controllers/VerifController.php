@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class VerifController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $data = Order::whereStatus('Menunggu')->get();
-
-        return view('admin.order.index', compact('data'));
+        $data = Order::whereStatus('Terverifikasi')->get();
+        return view('admin.verif.index', compact('data'));
     }
 
     /**
@@ -43,10 +42,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($id)
     {
         //
     }
@@ -54,41 +53,34 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit($id)
     {
-        return view('admin.order.edit', compact('order'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, $id)
     {
-        $order->update($request->all());
-
-        return redirect()->route('admin.order.index')->withSuccess('Data berhasil diubah');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $order
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy($id)
     {
-        try {
-            $order->delete();
-            return back()->withSuccess('Data Berhasil Dihapus');
-        } catch (Exception $exception) {
-            return notify()->warning($exception->getMessage());
-        }
+        //
     }
 }

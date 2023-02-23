@@ -24,20 +24,21 @@ class MainOrderController extends Controller
 
     public function update(Request $request, Order $order)
     {
-        $order->status = 'Upload Bukti Pembayaran';
-;
+        $order->update($request->all());
+        $name = $order->id;
+        $update = Order::findOrFail($name);
         if($request->foto != null)
         {
             $img = $request->file('foto');
             $FotoExt  = $img->getClientOriginalExtension();
-            $FotoName = $order->id;
+            $FotoName = $name;
             $foto   = $FotoName.'.'.$FotoExt;
             $img->move('public/order', $foto);
-            $order->foto       = $foto;
+            $update->foto       = $foto;
         }else{
-            $order->foto       = $order->foto;
+            $update->foto       = $update->foto;
         }
-        $order->update();
+        $update->update();
 
         return redirect()->route('customer.order.index')->withSuccess('Bukti Berhasil Di Upload');
     }

@@ -1,21 +1,22 @@
 <?php
 
-use App\Http\Controllers\MobilController;
-use App\Http\Controllers\TravelController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\WisataController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\JadwalController;
-use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\MainWisataController;
-use App\Http\Controllers\MainTravelController;
-use App\Http\Controllers\MainRentalController;
-use App\Http\Controllers\MainOrderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MobilController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\VerifController;
+use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\TravelController;
+use App\Http\Controllers\WisataController;
+use App\Http\Controllers\MainOrderController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\MainRentalController;
+use App\Http\Controllers\MainTravelController;
+use App\Http\Controllers\MainWisataController;
 
 
 /*
@@ -56,6 +57,7 @@ Route::middleware(['admin'])->group(function() {
         Route::resource('mobil', MobilController::class);
         Route::resource('travel', TravelController::class);
         Route::resource('order', OrderController::class);
+        Route::resource('verif', VerifController::class);
         Route::resource('wisata', WisataController::class)->except(['edit','destroy']);
         Route::prefix('wisata')->name('wisata.')->group(function () {
             Route::get('/{wisata}/edit', [WisataController::class, 'edit'])->name('edit');

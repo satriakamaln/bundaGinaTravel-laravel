@@ -1,7 +1,7 @@
 @extends('home')
 
 @section('title')
-Order
+Order Terverifikasi
 @endsection
 
 @section('head')
@@ -18,12 +18,12 @@ Order
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Order</h1>
+                <h1>Data Order Terverifikasi</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item active">Order</li>
+                    <li class="breadcrumb-item active">Order Terverifikasi</li>
                 </ol>
             </div>
         </div>
@@ -59,7 +59,6 @@ Order
                                     <th>Total</th>
                                     <th>Bukti Pembayaran</th>
                                     <th>Deskripsi</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="text-left">
@@ -104,7 +103,7 @@ Order
                                         {{carbon\carbon::parse($d->tanggal)->translatedFormat('d F Y')}} - {{carbon\carbon::parse($d->tanggal_selesai)->translatedFormat('d F Y')}}
                                         @endif
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <a class="btn btn-sm btn-info text-white" href="{{ route('admin.order.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
                                           </a>
@@ -114,7 +113,7 @@ Order
                                             <i class="fas fa-times"></i>
                                         </button>
 
-                                    </td>
+                                    </td> --}}
                                 </tr>
                                 @endforeach
                             </tbody>
