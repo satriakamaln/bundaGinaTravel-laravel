@@ -26,7 +26,7 @@ class MainOrderController extends Controller
     {
         $order->update($request->all());
         $name = $order->id;
-        $update = Order::findOrFail($name);
+        $order = Order::findOrFail($name);
         if($request->foto != null)
         {
             $img = $request->file('foto');
@@ -34,11 +34,12 @@ class MainOrderController extends Controller
             $FotoName = $name;
             $foto   = $FotoName.'.'.$FotoExt;
             $img->move('public/order', $foto);
-            $update->foto       = $foto;
+            $order->foto       = $foto;
         }else{
-            $update->foto       = $update->foto;
+            $order->foto       = $order->foto;
         }
-        $update->update();
+        // dd($order);
+        $order->update();
 
         return redirect()->route('customer.order.index')->withSuccess('Bukti Berhasil Di Upload');
     }

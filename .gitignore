@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/public/wisata
+/public/public/order
 /storage/*.key
 /vendor
 .env

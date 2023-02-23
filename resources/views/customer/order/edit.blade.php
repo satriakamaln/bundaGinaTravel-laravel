@@ -31,7 +31,7 @@ Wisata
                         @csrf
                         @method('put')
                         <div class="control-group">
-                            <input type="file" class="form-control p-4" placeholder="Upload Bukti Pembayaran Anda" required="required">
+                            <input type="file" name="foto" class="form-control p-4" placeholder="Upload Bukti Pembayaran Anda" required="required">
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="text-center">
