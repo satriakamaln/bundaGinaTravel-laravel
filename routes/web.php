@@ -13,6 +13,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\MainWisataController;
 use App\Http\Controllers\MainTravelController;
 use App\Http\Controllers\MainRentalController;
+use App\Http\Controllers\MainOrderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,10 +29,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('wisata', [MainWisataController::class, 'index'])->name('wisata');
 Route::get('wisata/{{wisata}}/show', [MainWisataController::class, 'show'])->name('wisatashow');
@@ -45,7 +42,9 @@ Route::middleware(['pelanggan'])->group(function() {
     Route::post('travel', [MainTravelController::class, 'store'])->name('travelstore');
     Route::post('rental', [MainRentalController::class, 'store'])->name('rentalstore');
 
-    Route::get('order', [MainOrderController::class, 'index'])->name('order');
+    Route::prefix('customer')->name('customer.')->group(function () {
+        Route::resource('order', MainOrderController::class);
+    });
 });
 
 Route::middleware(['admin'])->group(function() {
@@ -56,6 +55,7 @@ Route::middleware(['admin'])->group(function() {
         Route::resource('user', UserController::class);
         Route::resource('mobil', MobilController::class);
         Route::resource('travel', TravelController::class);
+        Route::resource('order', OrderController::class);
         Route::resource('wisata', WisataController::class)->except(['edit','destroy']);
         Route::prefix('wisata')->name('wisata.')->group(function () {
             Route::get('/{wisata}/edit', [WisataController::class, 'edit'])->name('edit');
@@ -64,15 +64,6 @@ Route::middleware(['admin'])->group(function() {
 
     });
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-        // Route::get('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'index'])->name('tourwisata');
-        // Route::post('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'create'])->name('tourwisatacreate');
-        // Route::put('/tourwisata', [App\Http\Controllers\TourWisataController::class, 'edit'])->name('tourwisataedit');
-
-        // Route::get('/rentalmobil', [App\Http\Controllers\RentalMobilController::class, 'index'])->name('rentalmobil');
-        // Route::post('/rentalmobil', [App\Http\Controllers\RentalMobilController::class, 'create'])->name('rentalmobilcreate');
-        // Route::put('/rentalmobil', [App\Http\Controllers\RentalMobilController::class, 'edit'])->name('rentalmobiledit');
-        // Route::delete('/rentalmobildelete/{id}', [App\Http\Controllers\RentalMobilController::class, 'destroy'])->name('rentalmobildelete');
 
         Route::get('/pemesanan', [App\Http\Controllers\PemesananController::class, 'index'])->name('pemesanan');
 
