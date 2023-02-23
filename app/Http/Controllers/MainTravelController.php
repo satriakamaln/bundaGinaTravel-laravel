@@ -28,6 +28,7 @@ class MainTravelController extends Controller
         $travel = Travel::whereId($request->travel_id)->first();
         $harga = $travel->harga;
         $input['harga'] = $harga;
+        $input['tanggal'] = $travel->tanggal_berangkat;
         $input['total'] = $jumlah * $harga;
         //dd($input);
 

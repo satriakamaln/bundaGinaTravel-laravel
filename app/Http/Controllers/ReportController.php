@@ -6,6 +6,7 @@ use PDF;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Mobil;
+use App\Models\Order;
 use App\Models\Travel;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
@@ -55,5 +56,37 @@ class ReportController extends Controller
         $pdf->setPaper('a4', 'potrait');
 
         return $pdf->stream('Laporan Travel.pdf');
+    }
+
+    public function orderall()
+    {
+        $data = Order::all();
+        $now = $this->now;
+        $pdf = PDF::loadView('admin.report.order', compact('now', 'data'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Order.pdf');
+    }
+
+    public function orderdate(Request $req)
+    {
+        $year = $req->year;
+        $month = $req->month;
+        if (!$month) {
+            $data = Order::whereYear('created_at', $year)->get();
+            $month = NULL;
+        } else {
+            $data = Order::whereMonth('created_at', $month)->whereYear('created_at', $year)->get();
+            $month = strtoupper(Carbon::parse('01-' . $month . '-' . $year)->translatedFormat('F'));
+            // dd($month);
+        }
+
+
+
+        $now = $this->now;
+        $pdf = PDF::loadView('admin.report.order', compact('now', 'data'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Order.pdf');
     }
 }

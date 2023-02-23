@@ -41,7 +41,7 @@ Wisata
                             <div class="col-md-4">
                                 <div class="mb-4 mb-md-0">
                                     <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text" class="form-control p-4 datetimepicker-input" required placeholder="Tanggal" data-target="#date1" data-toggle="datetimepicker"/>
+                                        <input type="date" name="tanggal" class="form-control p-4 datetimepicker-input" required placeholder="Tanggal" data-target="#date1" data-toggle="datetimepicker"/>
                                     </div>
                                 </div>
                             </div>

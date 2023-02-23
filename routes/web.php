@@ -68,6 +68,8 @@ Route::middleware(['admin'])->group(function() {
             Route::get('/wisata', [ReportController::class, 'wisataall'])->name('wisataall');
             Route::get('/mobil', [ReportController::class, 'mobilall'])->name('mobilall');
             Route::get('/travel', [ReportController::class, 'travelall'])->name('travelall');
+            Route::get('/order', [ReportController::class, 'orderall'])->name('orderall');
+            Route::get('/order/{{id}}', [ReportController::class, 'orderdate'])->name('orderdate');
         });
 
     });
