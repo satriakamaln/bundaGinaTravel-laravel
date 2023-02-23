@@ -155,7 +155,7 @@
                 <br>
                 <br>
                 <br>
-                <h5 style="text-decoration:underline; margin:0px">Yuli Ramadan. Amd</h5>
+                <h5 style="text-decoration:underline; margin:0px">Gina Istiqomah</h5>
                 {{-- <h5 style="margin:0px">NIP. 19710830 199101 1 002</h5> --}}
             </div>
         </div>
