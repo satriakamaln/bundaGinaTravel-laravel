@@ -69,7 +69,8 @@ Route::middleware(['admin'])->group(function() {
             Route::get('/mobil', [ReportController::class, 'mobilall'])->name('mobilall');
             Route::get('/travel', [ReportController::class, 'travelall'])->name('travelall');
             Route::get('/order', [ReportController::class, 'orderall'])->name('orderall');
-            Route::get('/order/{{id}}', [ReportController::class, 'orderdate'])->name('orderdate');
+            Route::get('/order/filter', [ReportController::class, 'orderfilter'])->name('orderfilter');
+            Route::post('/order/date', [ReportController::class, 'orderdate'])->name('orderdate');
         });
 
     });

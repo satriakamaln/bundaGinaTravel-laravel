@@ -60,7 +60,7 @@ class ReportController extends Controller
 
     public function orderall()
     {
-        $data = Order::all();
+        $data = Order::whereStatus('menunggu')->get();
         $now = $this->now;
         $pdf = PDF::loadView('admin.report.order', compact('now', 'data'));
         $pdf->setPaper('a4', 'landscape');
@@ -68,23 +68,19 @@ class ReportController extends Controller
         return $pdf->stream('Laporan Order.pdf');
     }
 
-    public function orderdate(Request $req)
+    public function orderfilter()
     {
-        $year = $req->year;
-        $month = $req->month;
-        if (!$month) {
-            $data = Order::whereYear('created_at', $year)->get();
-            $month = NULL;
-        } else {
-            $data = Order::whereMonth('created_at', $month)->whereYear('created_at', $year)->get();
-            $month = strtoupper(Carbon::parse('01-' . $month . '-' . $year)->translatedFormat('F'));
-            // dd($month);
-        }
+        return view('admin.order.filter');
+    }
 
-
-
+    public function orderdate(Request $request)
+    {
+        $start  = $request->start;
+        $end  = $request->end;
+        $data = Order::wherebetween('tanggal', [$start, $end])->get();
         $now = $this->now;
-        $pdf = PDF::loadView('admin.report.order', compact('now', 'data'));
+
+        $pdf = PDF::loadView('admin.report.orderdate', compact('now', 'data', 'start', 'end'));
         $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Order.pdf');

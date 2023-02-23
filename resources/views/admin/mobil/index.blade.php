@@ -65,7 +65,7 @@ Mobil
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $d->merk }}</td>
                                     <td>{{ $d->jenis }}</td>
-                                    <td>{{ $d->noplat }}</td>
+                                    <td>{{ $d->no_plat }}</td>
                                     <td>{{ $d->tipe }}</td>
                                     <td>Rp.{{ $d->harga }}/hari</td>
                                     <td>

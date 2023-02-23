@@ -41,8 +41,11 @@ Order
                             {{-- <a class="btn  btn-primary" href="{{ route('admin.travel.create') }}">
                                 <span><i class="feather icon-plus"></i> Tambah Data Travel</span>
                             </a> --}}
-                            <a type="button" href="{{ route('admin.report.orderall') }}" class="btn btn-xs btn-primary float-right" target="_blank">Cetak
+                            <a type="button" href="{{ route('admin.report.orderall') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak
                             </a>
+                            <a type="button" href="{{ route('admin.report.orderfilter') }}" class="btn btn-sm btn-primary float-right" target="_blank">Cetak Tanggal
+                            </a>
+
                         </td>
                     </div>
                     <!-- /.card-header -->
