@@ -53,6 +53,7 @@ Wisata
                                     <th>No</th>
                                     <th>Nama Wisata</th>
                                     <th>Lokasi</th>
+                                    <th>Harga</th>
                                     <th>Deskripsi</th>
                                     <th>Foto</th>
                                     <th>Aksi</th>
@@ -64,6 +65,7 @@ Wisata
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $d->nama_wisata }}</td>
                                     <td>{{ $d->lokasi }}</td>
+                                    <td>Rp. {{number_format($d->harga, 0, ',', '.')}},-</td>
                                     <td>{{ $d->deskripsi }}</td>
                                     <td class="text-center"><a class="btn btn-info" href="{{ asset('public/wisata/'.$d->foto) }}" target="_blank">Lihat Foto</a></td>
                                     <td>
