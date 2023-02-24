@@ -16,7 +16,7 @@ Dashboard
     <div class="container-fluid">
         <!-- Info boxes -->
         <div class="row">
-            <div class="col-12 col-sm-6 col-md-3">
+            {{-- <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
                     <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-user"></i></span>
 
@@ -30,9 +30,9 @@ Dashboard
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-            </div>
+            </div> --}}
             <!-- /.col -->
-            <div class="col-12 col-sm-6 col-md-3">
+            {{-- <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-info elevation-1"><i
                             class="fas fa-car"></i></i></span>
@@ -44,13 +44,13 @@ Dashboard
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-            </div>
+            </div> --}}
             <!-- /.col -->
 
             <!-- fix for small devices only -->
             <div class="clearfix hidden-md-up"></div>
 
-            <div class="col-12 col-sm-6 col-md-3">
+            {{-- <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-route"></i></span>
 
@@ -61,9 +61,9 @@ Dashboard
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-            </div>
+            </div> --}}
             <!-- /.col -->
-            <div class="col-12 col-sm-6 col-md-3">
+            {{-- <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-compass"></i></span>
 
@@ -74,10 +74,10 @@ Dashboard
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-            </div>
+            </div> --}}
             <!-- /.col -->
             <!-- /.col -->
-            <div class="col-12 col-sm-6 col-md-3">
+            {{-- <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-list"></i></span>
 
@@ -88,10 +88,10 @@ Dashboard
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-            </div>
+            </div> --}}
             <!-- /.col -->
             <!-- /.col -->
-            <div class="col-12 col-sm-6 col-md-3">
+            {{-- <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-check"></i></span>
 
@@ -102,10 +102,10 @@ Dashboard
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-            </div>
+            </div> --}}
             <!-- /.col -->
             <!-- /.col -->
-            <div class="col-12 col-sm-6 col-md-3">
+            {{-- <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-table"></i></span>
 
@@ -116,7 +116,7 @@ Dashboard
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-            </div>
+            </div> --}}
             <!-- /.col -->
             <!-- /.col -->
             {{-- <div class="col-12 col-sm-6 col-md-3">
@@ -130,14 +130,24 @@ Dashboard
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-            </div>
+            </div>--}}
             <!-- /.col -->
         </div>
-        <!-- /.row --> --}}
-
-
         <!-- /.row -->
     </div>
+    <div class="row">
+        <div class="col-6">
+            <img src="{{asset ('images/bundagina4.jpg')}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        <div class="col-6">
+            <img src="{{asset ('images/bundagina1.jpg')}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+
     <!-- /.container-fluid -->
 </section>
 
@@ -161,6 +171,8 @@ Dashboard
       });
     });
 </script>
+
+
 
 <!-- DataTables  & Plugins -->
 <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
