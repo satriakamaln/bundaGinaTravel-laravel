@@ -100,6 +100,9 @@ Route::middleware(['admin'])->group(function() {
             Route::post('/verif/date/wisata', [ReportController::class, 'verifdatewisata'])->name('verifdatewisata');
             Route::post('/verif/date/travel', [ReportController::class, 'verifdatetravel'])->name('verifdatetravel');
             Route::post('/verif/date/rental', [ReportController::class, 'verifdaterental'])->name('verifdaterental');
+
+            Route::get('/pendapatan', [ReportController::class, 'filterpendapatan'])->name('filterpendapatan');
+            Route::post('/pendapatan', [ReportController::class, 'pendapatan'])->name('pendapatan');
         });
 
     });

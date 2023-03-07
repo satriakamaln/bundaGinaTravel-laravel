@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\Travel;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
+use DB;
 
 class ReportController extends Controller
 {
@@ -189,6 +190,11 @@ class ReportController extends Controller
         return view('admin.verif.filterrental');
     }
 
+    public function filterpendapatan()
+    {
+        return view('admin.pendapatan.filterpendapatan');
+    }
+
     public function verifdate(Request $request)
     {
         $start  = $request->start;
@@ -200,6 +206,19 @@ class ReportController extends Controller
         $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Wisata Terverifikasi.pdf');
+    }
+
+    public function pendapatan(Request $request)
+    {
+        $start  = $request->start;
+        $end  = $request->end;
+        $data = Order::wherebetween('tanggal', [$start, $end])->whereStatus('Terverifikasi')->get();
+        $now = $this->now;
+
+        $pdf = PDF::loadView('admin.report.pendapatan', compact('now', 'data', 'start', 'end'));
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Pendapatan.pdf');
     }
 
     public function verifdatewisata(Request $request)
